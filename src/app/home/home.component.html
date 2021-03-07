@@ -1,0 +1,69 @@
+<div class="home-page">
+
+    <div class="banner">
+        <div class="container">
+            <h1 class="logo-font">conduit</h1>
+            <p>A place to share your knowledge.</p>
+        </div>
+    </div>
+
+    <div class="container page">
+        <div class="row">
+
+            <div class="col-md-9">
+                <div class="feed-toggle">
+                    <ul class="nav nav-pills outline-active">
+                        <li class="nav-item">
+                            <a class="nav-link disabled"
+                               href="">Your Feed</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active"
+                               href="">Global Feed</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <ng-container *ngIf="data.length > 0; else nodata">
+                    <div class="article-preview"
+                         *ngFor='let x of data'>
+                        <div class="article-meta">
+                            <a href="profile.html"><img [src]="x.avator" /></a>
+                            <div class="info">
+                                <a href=""
+                                   class="author">{{x.author}}</a>
+                                <span class="date">{{x.publishDate|date:'MMMM dd'}}</span>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm pull-xs-right"
+                                    (click)='like(x)'>
+                                <i class="ion-heart"></i> {{x.likes}}
+                            </button>
+                        </div>
+                        <a href=""
+                           class="preview-link">
+                            <h1>{{x.title}}</h1>
+                            <p>{{x.content|slice:0:60}}</p>
+                            <span>Read more...</span>
+                        </a>
+                    </div>
+                </ng-container>
+                <ng-template #nodata>No Data.</ng-template>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <p>Popular Tags</p>
+
+                    <div class="tag-list">
+                        <a *ngFor='let tag of tagList'
+                           href=""
+                           class="tag-pill tag-default">{{tag}}</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
