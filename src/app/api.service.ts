@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Articles } from './home/models/article.model';
 import { map } from 'rxjs/operators';
@@ -11,8 +11,16 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  loadData() {
-    return this.http.get<Articles>(`${this.baseUrl}/api/articles`).pipe(
+  loadData({ offset }) {
+    let params = new HttpParams();
+    params = params.set("limit", "20");
+    if (!!offset) {
+      params = params.set("offset", offset);
+    }
+    return this.http.get<Articles>(
+      `${this.baseUrl}/api/articles`,
+      { params }
+    ).pipe(
       map(result => {
         result.articles.forEach(article => {
           article.createdAt = new Date(article.createdAt);
