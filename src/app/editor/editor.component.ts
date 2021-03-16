@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Article } from '../models/article.model';
 
 @Component({
@@ -8,13 +9,28 @@ import { Article } from '../models/article.model';
 })
 export class EditorComponent implements OnInit {
 
-  title = "Default Title";
-  description;
-  body;
+  formData = new FormGroup({
+    title: new FormControl("Default Title"),
+    description: new FormControl(),
+    body: new FormControl()
+  });
 
   constructor() { }
 
   ngOnInit(): void {
+    this.formData.controls.title.valueChanges.subscribe({
+      next: v => {
+        const descriptionCtrl = this.formData.controls.description;
+        if (!!v) {
+          descriptionCtrl.setValidators([
+            Validators.required
+          ]);
+        } else {
+          descriptionCtrl.clearValidators();
+        }
+        descriptionCtrl.updateValueAndValidity();
+      }
+    });
   }
 
 }

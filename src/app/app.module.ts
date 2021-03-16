@@ -13,7 +13,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { EditorComponent } from './editor/editor.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

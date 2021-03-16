@@ -3,29 +3,24 @@
         <div class="row">
 
             <div class="col-md-10 offset-md-1 col-xs-12">
-                <form #articleForm="ngForm">
+                <form [formGroup]="formData">
                     <fieldset>
                         <fieldset class="form-group">
                             <input type="text"
                                    class="form-control form-control-lg"
-                                   ngModel
-                                   name="title"
-                                   #titleInput="ngModel"
+                                   formControlName="title"
                                    placeholder="Article Title">
                         </fieldset>
                         <fieldset class="form-group">
                             <input type="text"
                                    class="form-control"
-                                   ngModel
-                                   name="description"
-                                   [required]="!!titleInput.value"
+                                   formControlName="description"
                                    placeholder="What's this article about?">
                         </fieldset>
                         <fieldset class="form-group">
                             <textarea class="form-control"
                                       rows="8"
-                                      ngModel
-                                      name="body"
+                                      formControlName="body"
                                       placeholder="Write your article (in markdown)"></textarea>
                         </fieldset>
                         <fieldset class="form-group">
@@ -36,7 +31,7 @@
                         </fieldset>
                         <button class="btn btn-lg pull-xs-right btn-primary"
                                 type="button"
-                                [disabled]="articleForm.invalid">
+                                [disabled]="formData.invalid">
                             Publish Article
                         </button>
                     </fieldset>
