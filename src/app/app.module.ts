@@ -10,6 +10,8 @@ import { ArticleComponent } from './article/article.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PaginatorComponent } from './paginator/paginator.component';
     FooterComponent,
     HomeComponent,
     ArticleComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    ProfileComponent,
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule,

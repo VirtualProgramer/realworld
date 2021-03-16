@@ -1,8 +1,9 @@
 <div class="article-preview">
     <div class="article-meta">
-        <a href="profile.html"><img [src]="article.author.image" /></a>
+        <!-- <a routerLink="/profile/{{article.author.username}}"><img [src]="article.author.image" /></a> -->
+        <a (click)="gotoProfile(article.author.username)"><img [src]="article.author.image" /></a>
         <div class="info">
-            <a href=""
+            <a [routerLink]="['/profile', article.author.username]"
                class="author">{{article.author.username}}</a>
             <span class="date">{{article.updatedAt | date: 'yyyy MM'}}</span>
         </div>

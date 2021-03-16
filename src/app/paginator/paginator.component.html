@@ -1,9 +1,20 @@
-<p>paginator works!</p>
-{{totalCount}}
-
-<ul>
+<ul *ngIf="pages.length > 0"
+    class="pagination">
+    <li class="page-item">
+        <a class="page-link">
+            <span>&laquo;</span>
+        </a>
+    </li>
     <li *ngFor='let page of pages; let idx = index'
+        class="page-item"
         (click)='setPage(idx)'>
-        {{idx + 1}}
+        <a class="page-link">
+            {{idx + 1}}
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="page-link">
+            <span>&raquo;</span>
+        </a>
     </li>
 </ul>

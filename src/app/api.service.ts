@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Articles } from './home/models/article.model';
+import { Articles } from './models/article.model';
 import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,9 @@ export class ApiService {
         return result;
       })
     );
+  }
+
+  getProfile(username) {
+    return this.http.get(`${this.baseUrl}/api/profiles/${username}`);
   }
 }

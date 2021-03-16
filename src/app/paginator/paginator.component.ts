@@ -15,7 +15,7 @@ export class PaginatorComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
+
     this.totalCount = changes["totalCount"].currentValue;
 
     this.pages = new Array(Math.ceil(this.totalCount / this.pageSize));

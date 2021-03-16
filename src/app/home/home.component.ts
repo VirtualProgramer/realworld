@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map, shareReplay, switchMap } from 'rxjs/operators';
 import { ApiService } from '../api.service';
-import { Article } from './models/article.model';
+import { Article } from '../models/article.model';
 
 const mockTagList: string[] = [
   'programming',
