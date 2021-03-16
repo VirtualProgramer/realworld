@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { EditorComponent } from './editor/editor.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
     ArticleComponent,
     PaginatorComponent,
     ProfileComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
