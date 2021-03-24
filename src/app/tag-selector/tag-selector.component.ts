@@ -1,5 +1,5 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormArray, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormArray, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-tag-selector',
@@ -10,10 +10,16 @@ import { ControlValueAccessor, FormArray, FormControl, NG_VALUE_ACCESSOR } from 
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => TagSelectorComponent),
       multi: true
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => TagSelectorComponent),
+      multi: true
     }
   ]
 })
-export class TagSelectorComponent implements OnInit, ControlValueAccessor {
+export class TagSelectorComponent
+  implements OnInit, ControlValueAccessor, Validator {
 
   tag = new FormControl();
   tagList = new FormArray([]);
@@ -21,6 +27,11 @@ export class TagSelectorComponent implements OnInit, ControlValueAccessor {
   onTouched;
 
   constructor() { }
+
+  validate() {
+    return null; // {errorState: value}
+  }
+
   // Input
   writeValue(obj: string[]): void {
     this.tagList.clear();
