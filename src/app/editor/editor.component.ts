@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Article } from '../models/article.model';
 
 @Component({
@@ -11,8 +11,9 @@ export class EditorComponent implements OnInit {
 
   formData = new FormGroup({
     title: new FormControl("Default Title"),
-    description: new FormControl(),
-    body: new FormControl()
+    description: new FormControl(""),
+    body: new FormControl(""),
+    tag: new FormControl("")
   });
 
   constructor() { }
@@ -28,7 +29,9 @@ export class EditorComponent implements OnInit {
         } else {
           descriptionCtrl.clearValidators();
         }
-        descriptionCtrl.updateValueAndValidity();
+        descriptionCtrl.updateValueAndValidity({
+          emitEvent: false
+        });
       }
     });
   }

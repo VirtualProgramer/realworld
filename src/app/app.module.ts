@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { EditorComponent } from './editor/editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TagSelectorComponent } from './tag-selector/tag-selector.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PaginatorComponent,
     ProfileComponent,
     ArticleDetailComponent,
-    EditorComponent
+    EditorComponent,
+    TagSelectorComponent
   ],
   imports: [
     BrowserModule,

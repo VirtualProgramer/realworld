@@ -1,9 +1,9 @@
 <div class="editor-page">
     <div class="container page">
         <div class="row">
-
             <div class="col-md-10 offset-md-1 col-xs-12">
                 <form [formGroup]="formData">
+                    {{formData.value|json}}
                     <fieldset>
                         <fieldset class="form-group">
                             <input type="text"
@@ -23,12 +23,7 @@
                                       formControlName="body"
                                       placeholder="Write your article (in markdown)"></textarea>
                         </fieldset>
-                        <fieldset class="form-group">
-                            <input type="text"
-                                   class="form-control"
-                                   placeholder="Enter tags">
-                            <div class="tag-list"></div>
-                        </fieldset>
+                        <app-tag-selector formControlName="tag"></app-tag-selector>
                         <button class="btn btn-lg pull-xs-right btn-primary"
                                 type="button"
                                 [disabled]="formData.invalid">
